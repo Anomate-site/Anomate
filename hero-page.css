@@ -1,4 +1,4 @@
-/* like.css */
+/* hero-page.css */
 
 body {
     margin: 0;
@@ -124,3 +124,16 @@ body {
         transform: scale(1);
     }
 }
+
+/* Add this to your hero-page.css */
+
+.details-link {
+    text-decoration: none; /* Remove underline */
+    color: inherit; /* Use the inherited text color */
+    cursor: pointer; /* Pointer cursor */
+}
+
+.details-link:hover {
+    color: #ff6347; /* Optional: Change color on hover */
+}
+

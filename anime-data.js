@@ -43,28 +43,41 @@ async function fetchAnimeData() {
                 }
             });
 
-            // Create the like/unlike button container
-            const buttonContainer = document.createElement('div');
-            buttonContainer.className = 'button-container';
+   // Create the like/unlike button container
+const buttonContainer = document.createElement('div');
+buttonContainer.className = 'button-container';
 
-            const likeButton = document.createElement('button');
-            likeButton.innerHTML = '<i class="fas fa-heart"></i>'; // Font Awesome heart icon
-            likeButton.className = 'btn like-button';
-            likeButton.onclick = () => {
-                likeButton.classList.toggle('clicked');
-                playSound('like-sound.mp3'); // Play sound on click
-            };
+const likeButton = document.createElement('button');
+likeButton.innerHTML = '<i class="fas fa-heart"></i>'; // Font Awesome heart icon
+likeButton.className = 'btn like-button';
 
-            const unlikeButton = document.createElement('button');
-            unlikeButton.innerHTML = '<i class="fas fa-heart-broken"></i>'; // Font Awesome heart-broken icon
-            unlikeButton.className = 'btn unlike-button';
-            unlikeButton.onclick = () => {
-                unlikeButton.classList.toggle('clicked');
-                playSound('unlike-sound.mp3'); // Play sound on click
-            };
+const unlikeButton = document.createElement('button');
+unlikeButton.innerHTML = '<i class="fas fa-heart-broken"></i>'; // Font Awesome heart-broken icon
+unlikeButton.className = 'btn unlike-button';
 
-            buttonContainer.appendChild(likeButton);
-            buttonContainer.appendChild(unlikeButton);
+// Initially hide the unlike button
+unlikeButton.style.display = 'none';
+
+// Like button click event
+likeButton.onclick = () => {
+    likeButton.classList.add('clicked'); // Mark as liked
+    unlikeButton.classList.remove('clicked'); // Remove unlike state
+    unlikeButton.style.display = 'block'; // Show unlike button
+    likeButton.style.display = 'none'; // Hide like button
+    playSound('like-sound.mp3'); // Play sound on click
+};
+
+// Unlike button click event
+unlikeButton.onclick = () => {
+    unlikeButton.classList.add('clicked'); // Mark as unliked
+    likeButton.classList.remove('clicked'); // Remove like state
+    likeButton.style.display = 'block'; // Show like button
+    unlikeButton.style.display = 'none'; // Hide unlike button
+    playSound('unlike-sound.mp3'); // Play sound on click
+};
+
+buttonContainer.appendChild(likeButton);
+buttonContainer.appendChild(unlikeButton);
 
             animeItem.appendChild(animeImage);
             animeItem.appendChild(animeTitle);

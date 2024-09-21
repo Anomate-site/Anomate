@@ -179,14 +179,48 @@ nav a {
     }
 }
 
-.anime-btn {
+.heroes-btn {
     border: none;
     font-size: large;
-    left: -40px;
+    position: relative;
+    right: -50px;
     cursor: pointer;
     color: inherit; /* Inherit the color for initial state */
     transition: all 0.3s ease-in-out;
-    padding: 10px 20px; /* Add padding for a better button size */
+    padding: 5px 10px; /* Add padding for a better button size */
+    background-color: transparent; /* Ensure initial background is transparent */
+    border-radius: 5px; /* Add some border-radius for a softer look */
+}
+
+.heroes-btn:hover {
+    background-color: rgba(60, 53, 53, 0.233); /* Slight transparent background */
+    color: #000; /* Change text color to black on hover */
+    border-radius: 50px; /* Rounded corners on hover */
+    opacity: 1; /* Set opacity to fully visible when hovered */
+    animation: pulse 0.5s ease-in-out; /* Add the pulse animation */
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+}
+
+.anime-btn {
+    border: none;
+    font-size: large;
+    position: relative;
+    left: -60px;
+    cursor: pointer;
+    color: inherit; /* Inherit the color for initial state */
+    transition: all 0.3s ease-in-out;
+    padding: 5px 10px; /* Add padding for a better button size */
     background-color: transparent; /* Ensure initial background is transparent */
     border-radius: 5px; /* Add some border-radius for a softer look */
 }
